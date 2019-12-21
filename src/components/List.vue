@@ -1,18 +1,24 @@
 <template>
   <div id="list-container">
-    <div v-for="n in 3" :key="n">
-      <ListItem />
-    </div>
+    <draggable>
+      <transition-group>
+        <div v-for="n in 3" :key="n">
+          <ListItem :id="n" />
+        </div>
+      </transition-group>
+    </draggable>
   </div>
 </template>
 
 <script>
 import ListItem from "./ListItem.vue";
+import draggable from "vuedraggable";
 
 export default {
   name: "list",
   components: {
-    ListItem
+    ListItem,
+    draggable
   }
 };
 </script>

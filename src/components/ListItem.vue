@@ -1,8 +1,14 @@
 <template>
   <div class="list">
-    <div id="drag"></div>
+    <div id="drag">{{ id }}</div>
   </div>
 </template>
+
+<script>
+export default {
+  props: ["id"]
+};
+</script>
 
 <style scoped>
 .list {
