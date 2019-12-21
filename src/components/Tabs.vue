@@ -1,10 +1,10 @@
 <template>
   <div id="tab-container">
-    <div class="tab" v-on:click="clicked('current_card')">
+    <div class="tab" v-on:click="clicked(0)">
       Current Card
     </div>
     <div class="tab-padding" />
-    <div class="tab" v-on:click="clicked('list')">
+    <div class="tab" v-on:click="clicked(1)">
       List Of Cards
     </div>
   </div>
@@ -14,8 +14,8 @@
 export default {
   name: "tab",
   methods: {
-    clicked(identifier) {
-      this.$emit('tab_clicked', identifier);
+    clicked(id) {
+      this.$emit("tabClicked", id);
     }
   }
 };
