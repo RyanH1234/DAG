@@ -1,5 +1,5 @@
 <template>
-  <div class="list">
+  <div class="list-item">
     <div id="drag">
       <menu-icon :size="48" />
     </div>
@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style scoped>
-.list {
+.list-item {
   margin-top: 2vh;
   padding-top: 1vh;
   padding-bottom: 1vh;
@@ -34,6 +34,7 @@ export default {
   width: 100%;
   display: flex;
   flex-direction: row;
+  cursor: pointer;
 }
 
 #drag {
