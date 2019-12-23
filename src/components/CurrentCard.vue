@@ -11,18 +11,7 @@
 
 <script>
 export default {
-  data: () => {
-    return {
-      currentCard: {
-        id: 1,
-        name: "Ryan's Card",
-        genre: "Personal",
-        conditions: "",
-        description:
-          "Ryan must automically drink and has the option of participating. Stand as far away as possible and attempt to read the text. The person who can read the furthest wins. Everyone else must drink."
-      }
-    };
-  }
+  props: ["currentCard"]
 };
 </script>
 
@@ -60,7 +49,7 @@ export default {
   align-items: center;
 }
 
-#button-container Button {
+#button-container button {
   width: 200px;
   height: 50px;
 }

@@ -1,11 +1,7 @@
 <template>
   <div id="list-container">
-    <draggable>
-      <transition-group>
-        <div v-for="card in cards" :key="card.id">
-          <ListItem :card="card" />
-        </div>
-      </transition-group>
+    <draggable :list="cards" @change="change">
+      <ListItem v-for="card in cards" :key="card.id" :card="card" />
     </draggable>
   </div>
 </template>
@@ -15,18 +11,17 @@ import ListItem from "./ListItem.vue";
 import draggable from "vuedraggable";
 
 export default {
-  data: () => {
-    return {
-      cards: []
-    };
-  },
+  props: ["cards"],
   name: "list",
   components: {
     ListItem,
     draggable
   },
-  mounted() {
-    this.cards = this.$store.getters.getCards;
+  methods: {
+    change: function() {
+      const reOrderedCards = this.cards;
+      this.$store.commit('reorderCards', reOrderedCards);
+    },
   }
 };
 </script>

@@ -4,8 +4,8 @@
 
     <Tabs @tabClicked="onTabClicked" />
 
-    <CurrentCard v-if="currentTabID === 0" />
-    <List v-else />
+    <CurrentCard v-if="currentTabID === 0" :currentCard="currentCard" />
+    <List v-else :cards="cards"/>
   </div>
 </template>
 
@@ -19,7 +19,9 @@ export default {
   name: "dashboard",
   data: () => {
     return {
-      currentTabID: 0
+      currentTabID: 0,
+      cards: [],
+      currentCard: {},
     };
   },
   components: {
@@ -39,6 +41,11 @@ export default {
         this.currentTabID = tabID;
       }
     }
+  },
+  mounted() {
+    this.$store.commit('shuffleCards');
+    this.cards = this.$store.getters.getCards;
+    this.currentCard = this.$store.getters.getCurrentCard;
   }
 };
 </script>

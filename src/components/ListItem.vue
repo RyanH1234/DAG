@@ -26,15 +26,15 @@ export default {
 <style scoped>
 .list-item {
   margin-top: 2vh;
-  padding-top: 1vh;
-  padding-bottom: 1vh;
-  height: 10vh;
+  margin-bottom: 2vh;
+  padding: 20px;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   width: 100%;
   display: flex;
   flex-direction: row;
   cursor: pointer;
+  align-items: center;
 }
 
 #drag {
