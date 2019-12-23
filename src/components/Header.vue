@@ -1,12 +1,14 @@
 <template>
   <div id="header">
     <div class="center" id="title">Drinking & Gaming</div>
-    <div class="center" id="countdown">-00:00:30</div>
+    <div class="center" id="countdown">{{ timeToMidnight }}</div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["timeToMidnight"]
+};
 </script>
 
 <style scoped>

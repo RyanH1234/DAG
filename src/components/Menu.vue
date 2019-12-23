@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { getTimeToMidnight, getMidnight } from "../helper/time.js";
+import { getMidnight } from "../helper/time.js";
 
 export default {
   methods: {
@@ -19,15 +19,9 @@ export default {
       const midnight = getMidnight(now);
 
       this.$store.commit("setMidnight", midnight);
-      this.startCountdown(midnight);
+      
+      this.$router.push("Dash")
     },
-    startCountdown(midnight) {
-      window.setInterval(() => {
-        let now = new Date();
-        now = now.getTime();
-        getTimeToMidnight(now, midnight);
-      }, 100);
-    }
   }
 };
 </script>
