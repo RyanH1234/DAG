@@ -2,12 +2,13 @@ import Vue from "vue";
 import Vuex from "vuex";
 
 import cards from "../data.json";
+const shuffledCards = shuffle(cards);
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
-    cards: cards
+    cards: shuffledCards,
   },
   getters: {
     getCards(state) {
@@ -21,11 +22,6 @@ const store = new Vuex.Store({
     }
   },
   mutations: {
-    shuffleCards(state) {
-      const cards = state.cards;
-      const shuffledCards = shuffle(cards);
-      state.cards = shuffledCards;
-    },
     reorderCards(state, reOrderedCards) {
       state.cards = reOrderedCards;
     },

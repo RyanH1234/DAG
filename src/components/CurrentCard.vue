@@ -11,7 +11,14 @@
 
 <script>
 export default {
-  props: ["currentCard"]
+  data: () => {
+    return {
+      currentCard: {}
+    };
+  },
+  mounted() {
+    this.currentCard = this.$store.getters.getCurrentCard;
+  }
 };
 </script>
 
