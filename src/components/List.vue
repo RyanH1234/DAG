@@ -11,7 +11,11 @@ import ListItem from "./ListItem.vue";
 import draggable from "vuedraggable";
 
 export default {
-  props: ["cards"],
+  data: () => {
+    return {
+      cards: []
+    }
+  },
   name: "list",
   components: {
     ListItem,
@@ -22,6 +26,9 @@ export default {
       const reOrderedCards = this.cards;
       this.$store.commit('reorderCards', reOrderedCards);
     },
+  },
+  mounted() {
+    this.cards = this.$store.getters.getCards;
   }
 };
 </script>

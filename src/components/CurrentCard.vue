@@ -4,7 +4,7 @@
     <div id="genre">{{ currentCard.genre }}</div>
     <div id="description">{{ currentCard.description }}</div>
     <div id="button-container">
-      <Button> Completed </Button>
+      <Button @click="nextCard"> Completed </Button>
     </div>
   </div>
 </template>
@@ -18,6 +18,12 @@ export default {
   },
   mounted() {
     this.currentCard = this.$store.getters.getCurrentCard;
+  },
+  methods: {
+    nextCard() {
+      this.$store.commit('nextCard');
+      this.currentCard = this.$store.getters.getCurrentCard;
+    }
   }
 };
 </script>

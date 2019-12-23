@@ -25,6 +25,12 @@ const store = new Vuex.Store({
     reorderCards(state, reOrderedCards) {
       state.cards = reOrderedCards;
     },
+    nextCard(state) {
+      let cards = state.cards;
+      const [head, ...tail] = cards;
+      cards = tail.concat(head)
+      state.cards = cards;
+    }
   },
 });
 

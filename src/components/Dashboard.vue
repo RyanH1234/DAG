@@ -5,7 +5,7 @@
     <Tabs @tabClicked="onTabClicked" />
 
     <CurrentCard v-if="currentTabID === 0" />
-    <List v-else :cards="cards"/>
+    <List v-else />
   </div>
 </template>
 
@@ -41,9 +41,6 @@ export default {
       }
     }
   },
-  mounted() {
-    this.cards = this.$store.getters.getCards;
-  }
 };
 </script>
 
