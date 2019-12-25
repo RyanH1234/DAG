@@ -2,24 +2,15 @@
   <div class="container">
     <div class="menu">
       <div id="text">Start Countdown!</div>
-      <Button @click="initCountdown"> Start! </Button>
+      <Button @click="goToDash"> Start! </Button>
     </div>
   </div>
 </template>
 
 <script>
-import { getMidnight } from "../helper/time.js";
-
 export default {
   methods: {
-    initCountdown() {
-      let now = new Date();
-      now = now.getTime();
-
-      const midnight = getMidnight(now);
-
-      this.$store.commit("setMidnight", midnight);
-      
+    goToDash() {
       this.$router.push("Dash")
     },
   }

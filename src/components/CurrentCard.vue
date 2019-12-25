@@ -1,28 +1,47 @@
 <template>
-  <div id="content">
+  <div id="content" v-if="showCard">
     <div id="name">{{ currentCard.name }}</div>
     <div id="genre">{{ currentCard.genre }}</div>
     <div id="description">{{ currentCard.description }}</div>
     <div id="button-container">
-      <Button @click="nextCard"> Completed </Button>
+      <Button @click="startCountdown()"> Completed </Button>
     </div>
+  </div>
+  <div class="center countdown" id="content" v-else>
+    <Countdown :endTime="endTime" v-on:completed="nextCard()" />
   </div>
 </template>
 
 <script>
+import Countdown from "./Countdown.vue";
+import { addMinutesToDate } from "../helper/time.js";
+
 export default {
+  components: {
+    Countdown
+  },
   data: () => {
     return {
-      currentCard: {}
+      currentCard: {},
+      showCard: true,
+      endTime: ""
     };
   },
   mounted() {
     this.currentCard = this.$store.getters.getCurrentCard;
   },
   methods: {
+    startCountdown() {
+      this.showCard = false;
+
+      const now = new Date();
+      const endTime = addMinutesToDate(now, 0.1);
+      this.endTime = endTime.getTime();
+    },
     nextCard() {
-      this.$store.commit('nextCard');
+      this.$store.commit("nextCard");
       this.currentCard = this.$store.getters.getCurrentCard;
+      this.showCard = true;
     }
   }
 };
@@ -65,5 +84,14 @@ export default {
 #button-container button {
   width: 200px;
   height: 50px;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown {
+  font-size: 2em;
 }
 </style>

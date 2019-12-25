@@ -5,8 +5,12 @@ export function getMidnight(now) {
   return midnight;
 }
 
-export function getTimeToMidnight(now, midnight) {
-  const difference = midnight - now;
+export function addMinutesToDate(date, minutes) {
+  return new Date(date.getTime() + minutes * 60000);
+}
+
+export function getCountdown(now, end) {
+  const difference = end - now;
   const countdown = toTime(difference);
   return countdown;
 }

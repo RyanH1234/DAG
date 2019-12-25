@@ -1,13 +1,36 @@
 <template>
   <div id="header">
     <div class="center" id="title">Drinking & Gaming</div>
-    <div class="center" id="countdown">{{ timeToMidnight }}</div>
+    <div class="center" id="countdown">
+      <Countdown :endTime="midnight" />
+    </div>
   </div>
 </template>
 
 <script>
+import Countdown from "./Countdown.vue";
+
+import { getMidnight } from "../helper/time.js";
+
 export default {
-  props: ["timeToMidnight"]
+  data: () => {
+    return {
+      midnight: null
+    };
+  },
+  components: {
+    Countdown
+  },
+  mounted() {
+    let now = new Date();
+    now = now.getTime();
+
+    const midnight = getMidnight(now);
+
+    this.$store.commit("setMidnight", midnight);
+
+    this.midnight = this.$store.getters.getMidnight;
+  }
 };
 </script>
 
