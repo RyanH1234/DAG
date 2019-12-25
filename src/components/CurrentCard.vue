@@ -35,7 +35,7 @@ export default {
       this.showCard = false;
 
       const now = new Date();
-      const endTime = addMinutesToDate(now, 0.1);
+      const endTime = addMinutesToDate(now, 15);
       this.endTime = endTime.getTime();
     },
     nextCard() {

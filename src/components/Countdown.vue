@@ -1,5 +1,7 @@
 <template>
-  <div>{{ countdown }}</div>
+  <div :class="{red: lessThan30s}">
+    -{{ countdown }}
+  </div>
 </template>
 
 <script>
@@ -9,12 +11,19 @@ export default {
   data: () => {
     return {
       countdown: "",
-      interval: null
+      interval: null,
+      lessThan30s: false,
     };
   },
   props: ["endTime"],
   watch: {
-    countdown(timer) {      
+    countdown(timer) {
+      const [hh, mm, ss] = timer.split(":");
+
+      if(hh === "00" && mm === "00" && ss <= "30") {
+        this.lessThan30s = true;
+      }
+      
       if (timer === "00:00:00") {
         clearInterval(this.interval);
         this.$emit("completed");
@@ -38,3 +47,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+  .red {
+    color: red;
+  }
+</style>
