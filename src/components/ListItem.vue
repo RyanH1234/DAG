@@ -35,6 +35,8 @@ export default {
   flex-direction: row;
   cursor: pointer;
   align-items: center;
+  background-color: white;
+  opacity: 0.95;
 }
 
 #drag {
@@ -55,7 +57,7 @@ export default {
 }
 
 #description {
-  width: 70%;
+  width: 60%;
   height: 100%;
   font-size: 1.25em;
   display: flex;

@@ -35,7 +35,7 @@ export default {
       this.showCard = false;
 
       const now = new Date();
-      const endTime = addMinutesToDate(now, 15);
+      const endTime = addMinutesToDate(now, 12.5);
       this.endTime = endTime.getTime();
     },
     nextCard() {
@@ -53,9 +53,10 @@ export default {
   width: 70%;
   margin-top: 30px;
   align-self: center;
-  box-shadow: 0px 4px 5px 4px rgba(189, 189, 189, 1);
   display: flex;
   flex-direction: column;
+  background-color: white;
+  opacity: 0.95;
 }
 
 #name {
@@ -84,6 +85,14 @@ export default {
 #button-container button {
   width: 200px;
   height: 50px;
+  border: 1px solid rgb(158, 177, 176);
+  border-radius: 10px;
+  background-color: white;
+}
+
+#button-container button:hover {
+  cursor: pointer;
+  background-color: rgb(208, 236, 217);
 }
 
 .center {

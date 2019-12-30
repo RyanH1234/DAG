@@ -36,11 +36,12 @@ export default {
 
 <style scoped>
 #header {
+  background-color: white;
   font-size: 2em;
   width: 100%;
-  height: 15vh;
+  height: 12vh;
   display: flex;
-  box-shadow: 2px 20px 24px -9px rgba(189, 189, 189, 1);
+  /* opacity: 0.9; */
 }
 
 #title {

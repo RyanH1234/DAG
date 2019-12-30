@@ -37,11 +37,14 @@ export default {
   align-items: center;
   font-size: 1.5em;
   border-bottom: 1px solid black;
+  background-color: white;
+  opacity: 0.95;
 }
 
 .tab:hover {
   cursor: pointer;
   background-color: #f2f2f2;
+  background-color: rgb(208, 236, 217);
 }
 
 .tab-padding {

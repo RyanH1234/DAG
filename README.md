@@ -1,5 +1,9 @@
 # dag
 
+## Overview
+
+A drinking game for all, designed specifically for NYE in mind. 
+
 ## Project setup
 ```
 yarn install
