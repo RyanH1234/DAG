@@ -16,7 +16,7 @@ export default {
   methods: {
     clicked(id) {
       this.$emit("tabClicked", id);
-    }
+    },
   }
 };
 </script>

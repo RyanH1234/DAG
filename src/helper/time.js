@@ -40,3 +40,13 @@ function formatTime(unit) {
   }
   return unit;
 }
+
+export function checkIfLast30secs(timer) {
+  const [hh, mm, ss] = timer.split(":");
+
+  if (hh === "00" && mm === "00" && ss <= "30") {
+    return true;
+  }
+
+  return false;
+}

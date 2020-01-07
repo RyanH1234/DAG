@@ -3,27 +3,30 @@
     <div id="name">{{ currentCard.name }}</div>
     <div id="genre">{{ currentCard.genre }}</div>
     <div id="description">{{ currentCard.description }}</div>
-    <div class="countdown-container" v-if="showCard">
-      <Button @click="startCountdown()"> Completed </Button>
+    <div class="countdown-container" v-if="countdown == null">
+      <Button @click="startCountdown()"> Start! </Button>
     </div>
-    <div class="countdown-container"  v-else>
-      <Countdown :endTime="endTime" v-on:completed="nextCard()" />
+    <div class="countdown-container" v-else>
+      <Countdown v-on:completed="nextCard()" :countdown="countdown" />
     </div>
   </div>
 </template>
 
 <script>
 import Countdown from "./Countdown.vue";
-import { addMinutesToDate } from "../helper/time.js";
 
 export default {
   components: {
     Countdown
   },
+  props: {
+    countdown: {
+      default: null
+    }
+  },
   data: () => {
     return {
       currentCard: {},
-      showCard: true,
       endTime: ""
     };
   },
@@ -32,23 +35,19 @@ export default {
   },
   methods: {
     startCountdown() {
-      this.showCard = false;
-
-      const now = new Date();
-      const endTime = addMinutesToDate(now, 12.5);
-      this.endTime = endTime.getTime();
+      this.$emit("startCountdown");
     },
     nextCard() {
+      this.$emit("nextCard");
+
       this.$store.commit("nextCard");
       this.currentCard = this.$store.getters.getCurrentCard;
-      this.showCard = true;
     }
   }
 };
 </script>
 
 <style scoped>
-
 #content {
   height: 60vh;
   width: 70%;
