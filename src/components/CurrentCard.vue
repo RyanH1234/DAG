@@ -1,14 +1,14 @@
 <template>
-  <div id="content" v-if="showCard">
+  <div id="content">
     <div id="name">{{ currentCard.name }}</div>
     <div id="genre">{{ currentCard.genre }}</div>
     <div id="description">{{ currentCard.description }}</div>
-    <div id="button-container">
+    <div class="countdown-container" v-if="showCard">
       <Button @click="startCountdown()"> Completed </Button>
     </div>
-  </div>
-  <div class="center countdown" id="content" v-else>
-    <Countdown :endTime="endTime" v-on:completed="nextCard()" />
+    <div class="countdown-container"  v-else>
+      <Countdown :endTime="endTime" v-on:completed="nextCard()" />
+    </div>
   </div>
 </template>
 
@@ -48,6 +48,7 @@ export default {
 </script>
 
 <style scoped>
+
 #content {
   height: 60vh;
   width: 70%;
@@ -75,14 +76,15 @@ export default {
   font-style: italic;
 }
 
-#button-container {
-  height: 30%;
+.countdown-container {
   display: flex;
+  font-size: 2em;
   justify-content: center;
   align-items: center;
+  height: 30%;
 }
 
-#button-container button {
+.countdown-container button {
   width: 200px;
   height: 50px;
   border: 1px solid rgb(158, 177, 176);
@@ -90,17 +92,8 @@ export default {
   background-color: white;
 }
 
-#button-container button:hover {
+.countdown-container button:hover {
   cursor: pointer;
   background-color: rgb(208, 236, 217);
-}
-
-.center {
-  justify-content: center;
-  align-items: center;
-}
-
-.countdown {
-  font-size: 2em;
 }
 </style>
