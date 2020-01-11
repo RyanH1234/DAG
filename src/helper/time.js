@@ -35,13 +35,17 @@ export function toTime(ms) {
 }
 
 function formatTime(unit) {
-  if(unit < 10) {
+  if (unit < 10) {
     return "0" + unit;
   }
   return unit;
 }
 
 export function checkIfLast30secs(timer) {
+  if (timer == null) {
+    return false;
+  }
+
   const [hh, mm, ss] = timer.split(":");
 
   if (hh === "00" && mm === "00" && ss <= "30") {

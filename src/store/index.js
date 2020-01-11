@@ -38,6 +38,13 @@ const store = new Vuex.Store({
       cards = tail.concat(head);
       state.cards = cards;
     },
+    previousCard(state) {
+      let cards = state.cards;
+      const tailCard = cards.slice(-1);
+      cards = cards.slice(0, cards.length - 1);
+      cards = [...tailCard, ...cards];
+      state.cards = cards;
+    },
     setMidnight(state, midnight) {
       state.midnight = midnight;
     }

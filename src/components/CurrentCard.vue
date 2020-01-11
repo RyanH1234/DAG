@@ -3,21 +3,25 @@
     <div id="name">{{ currentCard.name }}</div>
     <div id="genre">{{ currentCard.genre }}</div>
     <div id="description">{{ currentCard.description }}</div>
-    <div class="countdown-container" v-if="countdown == null">
-      <Button @click="startCountdown()"> Start! </Button>
-    </div>
-    <div class="countdown-container" v-else>
+    <div class="countdown-container">
+      <arrow-left-icon class="arrow-icon" :size="48" @click="prevCard()"/>
       <Countdown v-on:completed="nextCard()" :countdown="countdown" />
+      <arrow-right-icon class="arrow-icon" :size="48" @click="nextCard()" />
     </div>
   </div>
 </template>
 
 <script>
+import ArrowRightIcon from "vue-material-design-icons/ArrowRight.vue";
+import ArrowLeftIcon from "vue-material-design-icons/ArrowLeft.vue";
+
 import Countdown from "./Countdown.vue";
 
 export default {
   components: {
-    Countdown
+    Countdown,
+    ArrowRightIcon,
+    ArrowLeftIcon
   },
   props: {
     countdown: {
@@ -34,13 +38,12 @@ export default {
     this.currentCard = this.$store.getters.getCurrentCard;
   },
   methods: {
-    startCountdown() {
-      this.$emit("startCountdown");
-    },
     nextCard() {
       this.$emit("nextCard");
-
-      this.$store.commit("nextCard");
+      this.currentCard = this.$store.getters.getCurrentCard;
+    },
+    prevCard() {
+      this.$emit("prevCard");
       this.currentCard = this.$store.getters.getCurrentCard;
     }
   }
@@ -94,5 +97,9 @@ export default {
 .countdown-container button:hover {
   cursor: pointer;
   background-color: rgb(208, 236, 217);
+}
+
+.arrow-icon {
+  cursor: pointer;
 }
 </style>

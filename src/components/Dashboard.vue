@@ -6,8 +6,8 @@
 
     <CurrentCard
       v-if="currentTabID === 0"
-      @startCountdown="startCountdown()"
-      @nextCard="resetCountdown()"
+      @prevCard="prevCard()"
+      @nextCard="nextCard()"
       :countdown="countdown"
     />
     <List v-else />
@@ -38,6 +38,9 @@ export default {
     List,
     CurrentCard
   },
+  mounted() {
+    this.startCountdown();
+  },
   methods: {
     hasTabChanged(tabID) {
       return tabID !== this.currentTabID;
@@ -49,9 +52,18 @@ export default {
         this.currentTabID = tabID;
       }
     },
+    nextCard() {
+      this.$store.commit("nextCard");
+      this.resetCountdown();
+    },
+    prevCard() {
+      this.$store.commit("previousCard");
+      this.resetCountdown();
+    },
     resetCountdown() {
       clearInterval(this.timer);
       this.countdown = null;
+      this.startCountdown();
     },
     startCountdown() {
       let startTime = new Date();
@@ -61,10 +73,11 @@ export default {
 
       this.timer = setInterval(() => {
         startTime = new Date();
+        
         const countdown = getCountdown(startTime, endTime);
         this.countdown = countdown;
       });
-    }
+    },
   }
 };
 </script>
