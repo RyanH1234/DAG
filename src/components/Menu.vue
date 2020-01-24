@@ -22,9 +22,6 @@ export default {
 </script>
 
 <style scoped>
-@import './assets/css/global.css';
-
-
 .container {
   height: 100%;
   width: 100%;
@@ -72,7 +69,7 @@ export default {
 .menu button:hover {
   height: 22%;
   width: 22%;
-  font-size: 0.8em;
+  font-size: 0.7em;
   cursor: pointer;
 }
 </style>
