@@ -1,10 +1,12 @@
 <template>
-  <div id="content">
-    <div id="name">{{ currentCard.name }}</div>
+  <div class="box-shadow primary-background" id="content">
+    <div class="light-background" id="name">{{ currentCard.name }}</div>
     <div id="genre">{{ currentCard.genre }}</div>
-    <div id="description">{{ currentCard.description }}</div>
+    <div class="center-contents" id="description-container">
+      <div id="description">{{ currentCard.description }}</div>
+    </div>
     <div class="countdown-container">
-      <arrow-left-icon class="arrow-icon" :size="48" @click="prevCard()"/>
+      <arrow-left-icon class="arrow-icon" :size="48" @click="prevCard()" />
       <Countdown v-on:completed="nextCard()" :countdown="countdown" />
       <arrow-right-icon class="arrow-icon" :size="48" @click="nextCard()" />
     </div>
@@ -52,30 +54,42 @@ export default {
 
 <style scoped>
 #content {
-  height: 60vh;
+  height: 70vh;
   width: 70%;
-  margin-top: 30px;
+  margin-top: 6vh;
   align-self: center;
   display: flex;
   flex-direction: column;
-  background-color: white;
   opacity: 0.95;
+  color: white;
 }
 
 #name {
   padding: 20px;
   font-size: 50px;
-}
+  height: 20%;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  }
 
 #genre {
   font-size: 25px;
-  margin-left: 20px;
+  padding: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+}
+
+#description-container {
+  font-size: 1.5em;
+  margin-top: 2.5%;
 }
 
 #description {
-  font-size: 20px;
-  padding: 20px;
-  font-style: italic;
+  width: 80%;
 }
 
 .countdown-container {

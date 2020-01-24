@@ -1,11 +1,13 @@
 <template>
-  <div id="tab-container">
-    <div class="tab" v-on:click="clicked(0)">
-      Current Card
-    </div>
-    <div class="tab-padding" />
-    <div class="tab" v-on:click="clicked(1)">
-      List Of Cards
+  <div id="container">
+    <div id="tab-container">
+      <div class="tab primary-background" v-on:click="clicked(0)">
+        Current Card
+      </div>
+      <div class="tab-padding" />
+      <div class="tab primary-background" v-on:click="clicked(1)">
+        List Of Cards
+      </div>
     </div>
   </div>
 </template>
@@ -22,19 +24,20 @@ export default {
 </script>
 
 <style scoped>
-/* 
-  Increase font size on click/highlight
-  Increase width of bottom border on click/highlight
-  Animate bottom border on click/highlight
-  Change background colour on click/highligh
-*/
-
-#tab-container {
-  margin-top: 30px;
+#container {
+  margin-top: 8vh;
   height: 7%;
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+#tab-container {
+  width: 75%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .tab {
@@ -42,16 +45,18 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.5em;
-  border-bottom: 1px solid black;
-  background-color: white;
+  font-size: 1.25em;
+  border-bottom: 2px solid #ba000d;
+  color: white;
   opacity: 0.95;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  transition: font-size 0.6s;
 }
 
 .tab:hover {
   cursor: pointer;
-  background-color: #f2f2f2;
-  background-color: rgb(208, 236, 217);
+  font-size: 1.5em;
 }
 
 .tab-padding {

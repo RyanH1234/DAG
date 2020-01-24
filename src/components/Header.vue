@@ -1,5 +1,5 @@
 <template>
-  <div id="header">
+  <div class="primary-background" id="header">
     <div class="center" id="title">Drinking & Gaming</div>
     <div class="center" id="countdown">
       <Countdown :endTime="midnight" />
@@ -36,12 +36,11 @@ export default {
 
 <style scoped>
 #header {
-  background-color: white;
   font-size: 2em;
   width: 100%;
   height: 12vh;
   display: flex;
-  /* opacity: 0.9; */
+  color: white;
 }
 
 #title {

@@ -1,7 +1,5 @@
 <template>
-  <div id="dash">
-    <Header />
-
+  <div class="default-background" id="dash">
     <Tabs @tabClicked="onTabClicked" />
 
     <CurrentCard
@@ -15,7 +13,6 @@
 </template>
 
 <script>
-import Header from "./Header.vue";
 import Tabs from "./Tabs.vue";
 import List from "./List.vue";
 import CurrentCard from "./CurrentCard.vue";
@@ -33,7 +30,6 @@ export default {
     };
   },
   components: {
-    Header,
     Tabs,
     List,
     CurrentCard

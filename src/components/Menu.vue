@@ -28,12 +28,11 @@ export default {
 }
 
 .menu {
-  height: 40%;
-  width: 40%;
+  height: 60%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 2em;
   margin-bottom: 10vh;
 }
 
@@ -43,15 +42,17 @@ export default {
   display: flex;
   align-items: center;
   color: white;
+  font-size: 4em;
 }
 
 .menu #text {
-  padding-left: 2.5%;
+  padding-left: 4%;
 }
 
 .menu #button-container {
   height: 60%;
   width: 100%;
+  font-size: 2em;
 }
 
 .menu button {
