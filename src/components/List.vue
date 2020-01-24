@@ -36,10 +36,8 @@ export default {
 <style scoped>
 #list-container {
   height: 60vh;
-  width: 90%;
+  width: 60%;
   margin-top: 30px;
   align-self: center;
-  overflow: scroll;
-  overflow-x: hidden;
 }
 </style>

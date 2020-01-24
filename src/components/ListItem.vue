@@ -1,24 +1,26 @@
 <template>
   <div class="list-item">
-    <div id="drag">
-      <menu-icon :size="48" />
-    </div>
-    <div id="content">
+    <div id="side" />
+    <div id="name">
       {{ card.name }}
     </div>
-    <div id="description">
-      {{ card.description }}
+    <div id="padding" />
+    <div id ="drag">
+      <arrow-up :size="48" />
+      <arrow-down :size="48" />
     </div>
   </div>
 </template>
 
 <script>
-import MenuIcon from "vue-material-design-icons/Menu.vue";
+import ArrowUp from "vue-material-design-icons/ArrowUp.vue";
+import ArrowDown from "vue-material-design-icons/ArrowDown.vue";
 
 export default {
   props: ["card"],
   components: {
-    MenuIcon
+    ArrowUp,
+    ArrowDown
   }
 };
 </script>
@@ -27,28 +29,27 @@ export default {
 .list-item {
   margin-top: 2vh;
   margin-bottom: 2vh;
-  padding: 20px;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  width: 100%;
+  border: 1px solid black;
+  border-radius: 10px;
   display: flex;
   flex-direction: row;
   cursor: pointer;
   align-items: center;
   background-color: white;
   opacity: 0.95;
+  height: 5vh;
 }
 
-#drag {
-  width: 10%;
+#side {
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 10px;
+  background-color: red;
+  border-radius: 10px 0px 0px 10px;
+  margin-right: 10px;
 }
 
-#content {
-  width: 20%;
+#name {
+  width: 70%;
   height: 100%;
   display: flex;
   justify-content: left;
@@ -56,12 +57,16 @@ export default {
   font-size: 1.5em;
 }
 
-#description {
-  width: 60%;
+#padding {
+  width: 20%;
   height: 100%;
-  font-size: 1.25em;
+}
+
+#drag {
+  width: 10%;
+  height: 100%;
   display: flex;
-  justify-content: left;
+  justify-content: center;
   align-items: center;
 }
 </style>

@@ -22,6 +22,13 @@ export default {
 </script>
 
 <style scoped>
+/* 
+  Increase font size on click/highlight
+  Increase width of bottom border on click/highlight
+  Animate bottom border on click/highlight
+  Change background colour on click/highligh
+*/
+
 #tab-container {
   margin-top: 30px;
   height: 7%;
