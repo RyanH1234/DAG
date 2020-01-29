@@ -47,6 +47,7 @@ export default {
 
 .menu #text {
   padding-left: 4%;
+  text-transform: uppercase;
 }
 
 .menu #button-container {

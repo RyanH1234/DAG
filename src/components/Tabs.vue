@@ -26,7 +26,7 @@ export default {
 <style scoped>
 #container {
   margin-top: 8vh;
-  height: 7%;
+  height: 7vh;
   display: flex;
   justify-content: center;
   width: 100%;
