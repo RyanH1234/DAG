@@ -3,7 +3,8 @@ import Vuex from "vuex";
 
 import { shuffle } from "../helper/shuffle.js";
 
-import cards from "../../public/data.json";
+import cards from "./data.json";
+
 const shuffledCards = shuffle(cards);
 
 Vue.use(Vuex);
