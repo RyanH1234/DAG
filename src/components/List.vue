@@ -33,7 +33,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 #list-container {
   height: 80vh;
   width: 70%;
@@ -42,4 +42,11 @@ export default {
   overflow: scroll;
   overflow-x: hidden;
 }
+
+@media (max-width: 768px) {  
+  #list-container {
+    width: 90%;
+  }
+}
+
 </style>

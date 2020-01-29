@@ -35,6 +35,7 @@ export default {
 #tab-container {
   width: 75%;
   height: 100%;
+  min-height: 60px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -62,4 +63,27 @@ export default {
 .tab-padding {
   width: 3%;
 }
+
+
+@media (max-width: 768px) {  
+  #container {
+    margin-top: 4vh;
+    margin-bottom: 20px;
+  }
+
+  #tab-container {
+    width: 100%;
+  }
+
+  .tab {
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    width: 41%;
+  }
+
+  .tab:hover {
+    font-size: 1.25em;
+  }
+}
+
 </style>

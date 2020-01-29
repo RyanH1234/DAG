@@ -5,13 +5,23 @@
       {{ card.name }}
     </div>
     <div id="padding" />
-    <div id="drag"></div>
+    <div id ="drag">
+      <chevron-up />
+      <chevron-down />
+    </div>
   </div>
 </template>
 
 <script>
+import ChevronUp from "vue-material-design-icons/ChevronUp.vue";
+import ChevronDown from "vue-material-design-icons/ChevronDown.vue";
+
 export default {
-  props: ["card"]
+  props: ["card"],
+  components: {
+    ChevronUp,
+    ChevronDown
+  }
 };
 </script>
 
@@ -26,6 +36,7 @@ export default {
   align-items: center;
   opacity: 0.95;
   height: 8vh;
+  min-height: 60px;
   color: white;
   width: 99%;
 }
@@ -48,15 +59,17 @@ export default {
 }
 
 #padding {
-  width: 20%;
+  width: 25%;
   height: 100%;
 }
 
 #drag {
-  width: 10%;
+  width: 5%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; 
+  border-radius: 0px 10px 10px 0px;
 }
 </style>

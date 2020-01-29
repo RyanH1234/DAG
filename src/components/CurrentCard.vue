@@ -66,7 +66,7 @@ export default {
 
 #name {
   padding: 20px;
-  font-size: 50px;
+  font-size: 4em;
   height: 20%;
   display: flex;
   align-items: center;
@@ -115,5 +115,24 @@ export default {
 
 .arrow-icon {
   cursor: pointer;
+}
+
+@media (max-width: 768px) { 
+  #content {
+    width: 90%;
+    height: 77%;
+  }
+
+  #name {
+    font-size: 2em;
+  }
+
+  #genre {
+    font-size: 1em;
+  }
+
+  #description-container {
+    font-size: 1.2em;
+  }
 }
 </style>

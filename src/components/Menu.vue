@@ -74,4 +74,12 @@ export default {
   font-size: 0.7em;
   cursor: pointer;
 }
+
+@media (max-width: 768px) { 
+  .menu {
+    height: 90%;
+    width: 90%;
+    margin-bottom: 0;
+  }
+}
 </style>
