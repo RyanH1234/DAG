@@ -6,9 +6,9 @@
       <div id="description">{{ currentCard.description }}</div>
     </div>
     <div class="countdown-container">
-      <arrow-left-icon class="arrow-icon" :size="48" @click="prevCard()" />
+      <arrow-left-icon class="arrow-icon" :size="39" @click="prevCard()" />
       <Countdown v-on:completed="nextCard()" :countdown="countdown" />
-      <arrow-right-icon class="arrow-icon" :size="48" @click="nextCard()" />
+      <arrow-right-icon class="arrow-icon" :size="39" @click="nextCard()" />
     </div>
   </div>
 </template>
@@ -98,6 +98,7 @@ export default {
   justify-content: center;
   align-items: center;
   height: 30%;
+  min-height: 100px;
 }
 
 .countdown-container button {
@@ -121,6 +122,8 @@ export default {
   #content {
     width: 90%;
     height: 70%;
+    overflow: scroll;
+    overflow-x: hidden;
   }
 
   #name {
@@ -133,6 +136,10 @@ export default {
 
   #description-container {
     font-size: 1.2em;
+  }
+
+  .countdown-container {
+    font-size: 1.5em;
   }
 }
 </style>

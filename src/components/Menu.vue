@@ -82,5 +82,14 @@ export default {
     width: 90%;
     margin-bottom: 0;
   }
+
+  .menu #header {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .menu #text {
+    padding-left: 0;
+  }
 }
 </style>
