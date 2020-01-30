@@ -117,10 +117,10 @@ export default {
   cursor: pointer;
 }
 
-@media (max-width: 768px) { 
+@media (max-width: 850px) {
   #content {
     width: 90%;
-    height: 77%;
+    height: 70%;
   }
 
   #name {

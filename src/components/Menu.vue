@@ -59,6 +59,7 @@ export default {
 .menu button {
   height: 20%;
   width: 20%;
+  min-width: 130px;
   color: white;
   font-size: 0.6em;
   text-transform: uppercase;
@@ -75,7 +76,7 @@ export default {
   cursor: pointer;
 }
 
-@media (max-width: 768px) { 
+@media (max-width: 850px) {
   .menu {
     height: 90%;
     width: 90%;

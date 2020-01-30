@@ -72,4 +72,10 @@ export default {
   align-items: center; 
   border-radius: 0px 10px 10px 0px;
 }
+
+@media (max-width: 850px) {
+  .list-item {
+    min-height: 80px;
+  }
+}
 </style>

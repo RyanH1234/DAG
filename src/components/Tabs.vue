@@ -30,6 +30,7 @@ export default {
   display: flex;
   justify-content: center;
   width: 100%;
+  min-height: 40px;
 }
 
 #tab-container {
@@ -64,8 +65,7 @@ export default {
   width: 3%;
 }
 
-
-@media (max-width: 768px) {  
+@media (max-width: 850px) {
   #container {
     margin-top: 4vh;
     margin-bottom: 20px;
