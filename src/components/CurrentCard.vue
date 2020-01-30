@@ -118,12 +118,17 @@ export default {
   cursor: pointer;
 }
 
+@media (max-width: 850px) and (max-height: 500px) {
+  #content {
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+}
+
 @media (max-width: 850px) {
   #content {
     width: 90%;
     height: 70%;
-    overflow: scroll;
-    overflow-x: hidden;
   }
 
   #name {
