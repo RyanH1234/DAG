@@ -56,27 +56,27 @@ export default {
 #content {
   height: 70vh;
   width: 70%;
-  margin-top: 6vh;
   align-self: center;
   display: flex;
   flex-direction: column;
+  margin-top: 6vh;
   opacity: 0.95;
   color: white;
 }
 
 #name {
-  padding: 20px;
-  font-size: 4em;
   height: 20%;
   display: flex;
   align-items: center;
+  padding: 20px;
+  font-size: 4em;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   }
 
 #genre {
-  font-size: 25px;
   padding: 20px;
+  font-size: 25px;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   border-top: 2px solid white;
@@ -93,17 +93,17 @@ export default {
 }
 
 .countdown-container {
-  display: flex;
-  font-size: 2em;
-  justify-content: center;
-  align-items: center;
   height: 30%;
   min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
 }
 
 .countdown-container button {
-  width: 200px;
   height: 50px;
+  width: 200px;
   border: 1px solid rgb(158, 177, 176);
   border-radius: 10px;
   background-color: white;

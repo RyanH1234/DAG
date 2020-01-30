@@ -37,8 +37,8 @@ export default {
 #list-container {
   height: 80vh;
   width: 70%;
-  margin-top: 30px;
   align-self: center;
+  margin-top: 30px;
   overflow: scroll;
   overflow-x: hidden;
 }
