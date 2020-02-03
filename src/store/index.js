@@ -109,20 +109,20 @@ const cards = [
     description:
       "Everyone must fill their drinks to the brim with some form of alcohol. No mixers allowed. Everyone must then participate in Waterfall."
   },
-  {
-    id: 16,
-    name: "The Stank",
-    genre: "Generic",
-    description:
-      "For the next ten minutes the person who can do the nastiest fart wins. Bonus points for a shart. Everyone most vote on their favourite fart which was not produced by themselves. If you are unable to fart, you must drink."
-  },
-  {
-    id: 17,
-    name: "Bali Belly",
-    genre: "Generic",
-    description:
-      "Each person must share their most horrific shitting stories. Everyone must vote on a story other than the one they recounted. The person with the most votes wins. Everyone else must drink. Drink again if you don't share/don't have a story."
-  },
+  // {
+  //   id: 16,
+  //   name: "The Stank",
+  //   genre: "Generic",
+  //   description:
+  //     "For the next ten minutes the person who can do the nastiest fart wins. Bonus points for a shart. Everyone most vote on their favourite fart which was not produced by themselves. If you are unable to fart, you must drink."
+  // },
+  // {
+  //   id: 17,
+  //   name: "Bali Belly",
+  //   genre: "Generic",
+  //   description:
+  //     "Each person must share their most horrific shitting stories. Everyone must vote on a story other than the one they recounted. The person with the most votes wins. Everyone else must drink. Drink again if you don't share/don't have a story."
+  // },
   {
     id: 18,
     name: "It's A Boy!",
@@ -144,13 +144,13 @@ const cards = [
     description:
       "Each person must say something nice about the person opposite them. Everyone gets a compliment. If you are snide, scarcastic or rude - you must drown your whole drink. Love you all x"
   },
-  {
-    id: 21,
-    name: "Gossip Goat",
-    genre: "Generic",
-    description:
-      "Whoever has the juiceiest gossip to spill, wins. Spill the tea bitches."
-  }
+  // {
+  //   id: 21,
+  //   name: "Gossip Goat",
+  //   genre: "Generic",
+  //   description:
+  //     "Whoever has the juiceiest gossip to spill, wins. Spill the tea bitches."
+  // }
 ];
 
 const shuffledCards = shuffle(cards);
