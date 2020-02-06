@@ -130,9 +130,16 @@ const cards = [
     description:
       "Within the next ten minutes each person must share a photo where they look the most pregnant. Everyone must vote on a photo that was taken by someone other than themselves. The photo with the most votes wins. Everyone else must drink. Anyone who decides not to participate must drink."
   },
+  // {
+  //   id: 19,
+  //   name: "What Appears To Be The Officer, Problem?",
+  //   genre: "Generic",
+  //   description:
+  //     "Each person must attempt to walk in a straight line - forwards and backwards. The person who can walk the straightest wins. Everyone else must drink."
+  // },
   {
     id: 19,
-    name: "What Appears To Be The Officer, Problem?",
+    name: "The Tight Rope",
     genre: "Generic",
     description:
       "Each person must attempt to walk in a straight line - forwards and backwards. The person who can walk the straightest wins. Everyone else must drink."

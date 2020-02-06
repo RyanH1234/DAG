@@ -122,9 +122,12 @@ export default {
 
 @media (max-width: 850px) and (max-height: 800px) {
   #content {
-    overflow: scroll;
-    overflow-x: hidden;
+    overflow-y: auto;
     border-radius: 20px 0px 0px 20px;
+  }
+
+  #description {
+    margin-bottom: 2vh;
   }
 }
 
@@ -134,10 +137,15 @@ export default {
     height: 70%;
   }
 
+  #content {
+    height: 80%;
+  }
+
   #name {
     font-size: 1.3em;
     border-right: 0px;
     border-left: 0px;
+    height: 15%;
   }
 
   #countdown {
