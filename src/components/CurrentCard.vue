@@ -125,9 +125,7 @@ export default {
     overflow: scroll;
     overflow-x: hidden;
   }
-}
-
-@media (max-height: 450px) {
+  
   #content {
     border-radius: 20px 0px 0px 20px;
   }

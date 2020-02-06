@@ -83,6 +83,7 @@ export default {
 
   .tab:hover {
     font-size: 1.25em;
+    text-align: center;
   }
 }
 
