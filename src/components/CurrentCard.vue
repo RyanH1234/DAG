@@ -6,6 +6,7 @@
         {{ currentCard.name }}
         <arrow-right-icon class="arrow-icon" :size="39" @click="nextCard()" />
       </div>
+      
       <div id="countdown">
         <div class="countdown-container">
           <Countdown v-on:completed="nextCard()" :countdown="countdown" />
@@ -14,7 +15,6 @@
       <div class="center-contents" id="description-container">
         <div id="description">{{ currentCard.description }}</div>
       </div>
-
     </div>
   </div>
 </template>
@@ -22,7 +22,6 @@
 <script>
 import ArrowRightIcon from "vue-material-design-icons/ArrowRight.vue";
 import ArrowLeftIcon from "vue-material-design-icons/ArrowLeft.vue";
-
 import Countdown from "./Countdown.vue";
 
 export default {
@@ -84,11 +83,14 @@ export default {
   height: 10%;
   display: flex;
   align-items: center;
+  text-align: center;
   justify-content: space-between;
   padding: 20px;
-  font-size: 3em;
+  font-size: 2em;
   text-transform: uppercase;
-  border-radius: 20px;
+  border-radius: 20px 20px 0px 0px;
+  border-right: 1px solid white;
+  border-left: 1px solid white;
   letter-spacing: 0.05em;
 }
 
@@ -125,15 +127,22 @@ export default {
   }
 }
 
-@media (max-width: 850px) {
+@media (max-height: 450px) {
   #content {
+    border-radius: 20px 0px 0px 20px;
+  }
+}
+
+@media (max-width: 850px) {
+  .content-container {
     width: 90%;
     height: 70%;
-    border-radius: 20px 0px 0px 20px;
   }
 
   #name {
-    font-size: 2em;
+    font-size: 1.5em;
+    border-right: 0px;
+    border-left: 0px;
   }
 
   #countdown {
