@@ -120,7 +120,7 @@ export default {
   cursor: pointer;
 }
 
-@media (max-width: 850px) and (max-height: 650px) {
+@media (max-width: 850px) and (max-height: 800px) {
   #content {
     overflow: scroll;
     overflow-x: hidden;
@@ -135,7 +135,7 @@ export default {
   }
 
   #name {
-    font-size: 1.5em;
+    font-size: 1.3em;
     border-right: 0px;
     border-left: 0px;
   }
