@@ -120,13 +120,10 @@ export default {
   cursor: pointer;
 }
 
-@media (max-width: 850px) and (max-height: 500px) {
+@media (max-width: 850px) and (max-height: 650px) {
   #content {
     overflow: scroll;
     overflow-x: hidden;
-  }
-  
-  #content {
     border-radius: 20px 0px 0px 20px;
   }
 }
