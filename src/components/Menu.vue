@@ -54,6 +54,9 @@ export default {
   height: 60%;
   width: 100%;
   font-size: 2em;
+  background-image: url("../assets/bg_1_low.jpg");
+  background-position: center;
+  background-size: 100%;
 }
 
 .menu button {

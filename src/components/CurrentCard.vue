@@ -1,14 +1,20 @@
 <template>
-  <div class="box-shadow primary-background" id="content">
-    <div class="light-background" id="name">{{ currentCard.name }}</div>
-    <div id="genre">{{ currentCard.genre }}</div>
-    <div class="center-contents" id="description-container">
-      <div id="description">{{ currentCard.description }}</div>
-    </div>
-    <div class="countdown-container">
-      <arrow-left-icon class="arrow-icon" :size="39" @click="prevCard()" />
-      <Countdown v-on:completed="nextCard()" :countdown="countdown" />
-      <arrow-right-icon class="arrow-icon" :size="39" @click="nextCard()" />
+  <div class="content-container center-contents">
+    <div class="light-background" id="content">
+      <div class="light-background" id="name">
+        <arrow-left-icon class="arrow-icon" :size="39" @click="prevCard()" />
+        {{ currentCard.name }}
+        <arrow-right-icon class="arrow-icon" :size="39" @click="nextCard()" />
+      </div>
+      <div id="countdown">
+        <div class="countdown-container">
+          <Countdown v-on:completed="nextCard()" :countdown="countdown" />
+        </div>
+      </div>
+      <div class="center-contents" id="description-container">
+        <div id="description">{{ currentCard.description }}</div>
+      </div>
+
     </div>
   </div>
 </template>
@@ -53,34 +59,50 @@ export default {
 </script>
 
 <style scoped>
-#content {
+.content-container {
+  background-image: url("../assets/bg_1_low.jpg");
+  background-position: center;
+  background-size: 100%;
   height: 70vh;
   width: 70%;
   align-self: center;
+  margin-top: 6vh;
+}
+
+#content {
   display: flex;
   flex-direction: column;
-  margin-top: 6vh;
   opacity: 0.95;
   color: white;
+  height: 75%;
+  width: 80%;
+  border: 1px solid white;
+  border-radius: 20px;
 }
 
 #name {
-  height: 20%;
+  height: 10%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 20px;
-  font-size: 4em;
+  font-size: 3em;
   text-transform: uppercase;
+  border-radius: 20px;
   letter-spacing: 0.05em;
-  }
+}
 
-#genre {
+#countdown {
   padding: 20px;
-  font-size: 25px;
+  font-size: 1.5em;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
   border-top: 2px solid white;
   border-bottom: 2px solid white;
+  background-color: #f44336;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #description-container {
@@ -89,29 +111,7 @@ export default {
 }
 
 #description {
-  width: 80%;
-}
-
-.countdown-container {
-  height: 30%;
-  min-height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2em;
-}
-
-.countdown-container button {
-  height: 50px;
-  width: 200px;
-  border: 1px solid rgb(158, 177, 176);
-  border-radius: 10px;
-  background-color: white;
-}
-
-.countdown-container button:hover {
-  cursor: pointer;
-  background-color: rgb(208, 236, 217);
+  width: 90%;
 }
 
 .arrow-icon {
@@ -129,13 +129,14 @@ export default {
   #content {
     width: 90%;
     height: 70%;
+    border-radius: 20px 0px 0px 20px;
   }
 
   #name {
     font-size: 2em;
   }
 
-  #genre {
+  #countdown {
     font-size: 1em;
   }
 
