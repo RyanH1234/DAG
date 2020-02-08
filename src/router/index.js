@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Menu from "../components/Menu";
+import Menu from "../components/menu/Menu";
 import Dashboard from "../components/Dashboard";
 
 Vue.use(VueRouter)

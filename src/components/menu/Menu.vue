@@ -4,6 +4,10 @@
       <div class="light-background" id="header">
         <div id="text">Welcome!</div>
       </div>
+      <Teams />
+      <members />
+      <genre />
+      <personal />
       <div class="center-contents" id="button-container">
         <Button class="primary-background default-font" @click="goToDash">Start</Button>
       </div>
@@ -12,7 +16,18 @@
 </template>
 
 <script>
+import Teams from "./Teams";
+import Members from "./Members";
+import Genre from "./Genre";
+import Personal from "./Personal";
+
 export default {
+  components: {
+    Teams,
+    Members,
+    Genre,
+    Personal
+  },
   methods: {
     goToDash() {
       this.$router.push("Dash");
@@ -25,23 +40,23 @@ export default {
 .container {
   height: 100%;
   width: 100%;
+  color: white;
 }
 
 .menu {
-  height: 60%;
-  width: 60%;
+  height: 80%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 10vh;
+  overflow-y: auto;
 }
 
 .menu #header {
-  height: 40%;
+  min-height: 200px;
   width: 100%;
   display: flex;
   align-items: center;
-  color: white;
   font-size: 4em;
 }
 
@@ -51,18 +66,19 @@ export default {
 }
 
 .menu #button-container {
-  height: 60%;
+  min-height: 150px;
   width: 100%;
   font-size: 2em;
-  background-image: url("../assets/bg_1_low.jpg");
+  /* background-image: url("../../assets/bg_1_low.jpg"); */
   background-position: center;
   background-size: 100%;
 }
 
 .menu button {
-  height: 20%;
+  height: 50%;
   width: 20%;
   min-width: 130px;
+  min-height: 60px;
   color: white;
   font-size: 0.6em;
   text-transform: uppercase;
@@ -73,7 +89,7 @@ export default {
 }
 
 .menu button:hover {
-  height: 22%;
+  height: 54%;
   width: 22%;
   font-size: 0.7em;
   cursor: pointer;
