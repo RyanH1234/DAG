@@ -1,20 +1,19 @@
 <template>
-  <div class="members-container">
+  <div class="container">
     <div class="center-contents" id="title">Members</div>
+    <div id="items">
+      <div v-for="user in members" :key="user.id" class="item">
+        <div id="padding" />
+        <div id="item_name">{{ user.username }} </div>
+      </div>
+    </div>
   </div>
 </template>
 
-<style scoped>
-.members-container {
-  min-height: 200px;
-  width: 100%;
+<script>
+export default {
+  props: [
+    "members"
+  ]
 }
-
-.members-container #title {
-  width: 100%;
-  font-size: 2em;
-  text-transform: uppercase;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-</style>
+</script>

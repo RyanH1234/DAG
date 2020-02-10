@@ -1,20 +1,26 @@
 <template>
-  <div class="personal-container">
-    <div class="center-contents" id="title">Personal</div>
+  <div class="container">
+    <div class="center-contents" id="title">Personal Cards</div>
+    <div id="items">
+      <div v-for="card in personal_cards" :key="card.id" class="item">
+        <div id="padding" />
+        <div id="item_name"> {{ card.name }} </div>
+      </div>
+    </div>
   </div>
 </template>
 
-<style scoped>
-.personal-container {
-  min-height: 200px;
-  width: 100%;
+<script>
+export default {
+  data: () => {
+    return {
+      personal_cards: []
+    }
+  },
+  mounted() {
+    this.personal_cards = [
+      {id: 1, name: "The Stank", description: "Stank yourself"}
+    ]
+  }
 }
-
-.personal-container #title {
-  width: 100%;
-  font-size: 2em;
-  text-transform: uppercase;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-</style>
+</script>

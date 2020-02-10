@@ -4,12 +4,14 @@
       <div class="light-background" id="header">
         <div id="text">Welcome!</div>
       </div>
-      <Teams />
-      <members />
-      <genre />
+      <Teams :teams="teams" />
+      <members :members="members" />
+      <generic />
       <personal />
       <div class="center-contents" id="button-container">
-        <Button class="primary-background default-font" @click="goToDash">Start</Button>
+        <Button class="primary-background default-font" @click="goToDash"
+          >Start</Button
+        >
       </div>
     </div>
   </div>
@@ -18,28 +20,60 @@
 <script>
 import Teams from "./Teams";
 import Members from "./Members";
-import Genre from "./Genre";
+import Generic from "./Generic";
 import Personal from "./Personal";
 
 export default {
+  data: () => {
+    return {
+      teams: [],
+      members: []
+    };
+  },
   components: {
     Teams,
     Members,
-    Genre,
+    Generic,
     Personal
   },
   methods: {
     goToDash() {
       this.$router.push("Dash");
+    },
+    retrieveTeams() {
+      this.$axios
+        .get("http://localhost:4000/teams")
+        .then(response => {
+          this.teams = response.data;
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+    retrieveMembers() {
+      this.$axios
+        .post("http://localhost:4000/teams/members/id", {
+          team_id: 1
+        })
+        .then(response => {
+          this.members = response.data;
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
     }
+  },
+  mounted() {
+    this.retrieveTeams();
+    this.retrieveMembers();
   }
 };
 </script>
 
-<style scoped>
+<style>
 .container {
-  height: 100%;
   width: 100%;
+  height: 100%;
   color: white;
 }
 
@@ -69,7 +103,6 @@ export default {
   min-height: 150px;
   width: 100%;
   font-size: 2em;
-  /* background-image: url("../../assets/bg_1_low.jpg"); */
   background-position: center;
   background-size: 100%;
 }
@@ -93,6 +126,46 @@ export default {
   width: 22%;
   font-size: 0.7em;
   cursor: pointer;
+}
+
+.container #title {
+  width: 100%;
+  font-size: 2em;
+  text-transform: uppercase;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.container #items {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+#items #padding {
+  height: 100%;
+  width: 2.5%;
+}
+
+#items .item {
+  min-height: 50px;
+  height: 100%;
+  width: 80%;
+  align-self: center;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  border: 1px solid white;
+  margin-bottom: 20px;
+  transition: width 0.3s;
+}
+
+#items .item:hover {
+  cursor: pointer;
+  width: 82%;
 }
 
 @media (max-width: 850px) {
