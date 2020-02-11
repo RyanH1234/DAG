@@ -4,7 +4,7 @@
       <div class="light-background" id="header">
         <div id="text">Welcome!</div>
       </div>
-      <Teams :teams="teams" />
+      <Teams :teams="teams" @team="setTeam" />
       <members :members="members" />
       <generic />
       <personal />
@@ -40,9 +40,14 @@ export default {
     goToDash() {
       this.$router.push("Dash");
     },
+    setTeam(params) {
+      this.retrieveMembers(params.team_id)
+    },
     retrieveTeams() {
       this.$axios
-        .get("http://localhost:4000/teams")
+        .post("http://localhost:4000/teams/id", {
+          team_id: 15
+        })
         .then(response => {
           this.teams = response.data;
         })
@@ -50,10 +55,10 @@ export default {
           console.log(error);
         });
     },
-    retrieveMembers() {
+    retrieveMembers(id) {
       this.$axios
         .post("http://localhost:4000/teams/members/id", {
-          team_id: 1
+          team_id: id
         })
         .then(response => {
           this.members = response.data;
@@ -65,7 +70,6 @@ export default {
   },
   mounted() {
     this.retrieveTeams();
-    this.retrieveMembers();
   }
 };
 </script>
