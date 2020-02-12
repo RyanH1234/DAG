@@ -18,6 +18,9 @@
         </div>
       </div>
     </div>
+    <div class="items-button-container">
+      <Button class="primary-background">New Team</Button>
+    </div>
   </div>
 </template>
 

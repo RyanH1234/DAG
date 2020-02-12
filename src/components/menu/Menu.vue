@@ -6,7 +6,7 @@
       </div>
       <Teams :teams="teams" @team="setTeam" />
       <members :members="members" />
-      <generic />
+      <generic :genres="genres" />
       <personal />
       <div class="center-contents" id="button-container">
         <Button class="primary-background default-font" @click="goToDash"
@@ -23,11 +23,14 @@ import Members from "./Members";
 import Generic from "./Generic";
 import Personal from "./Personal";
 
+const BASE_URI = "http://localhost:4000";
+
 export default {
   data: () => {
     return {
       teams: [],
-      members: []
+      members: [],
+      genres: []
     };
   },
   components: {
@@ -41,35 +44,52 @@ export default {
       this.$router.push("Dash");
     },
     setTeam(params) {
-      this.retrieveMembers(params.team_id)
+      this.retrieveMembers(params.team_id);
     },
     retrieveTeams() {
+      const uri = BASE_URI + "/teams/id";
+      
       this.$axios
-        .post("http://localhost:4000/teams/id", {
+        .post(uri, {
           team_id: 15
         })
         .then(response => {
           this.teams = response.data;
         })
         .catch(error => {
-          console.log(error);
+          console.dir(error);
+        });
+    },
+    retrieveGenres() {
+      const uri = BASE_URI + "/cards/genres";
+
+      this.$axios
+        .get(uri)
+        .then(response => {
+          this.genres = response.data;
+        })
+        .catch(error => {
+          console.dir(error);
         });
     },
     retrieveMembers(id) {
+      const uri = BASE_URI + "/teams/members/id";
+
       this.$axios
-        .post("http://localhost:4000/teams/members/id", {
+        .post(uri, {
           team_id: id
         })
         .then(response => {
           this.members = response.data;
         })
         .catch(function(error) {
-          console.log(error);
+          console.dir(error);
         });
     }
   },
   mounted() {
     this.retrieveTeams();
+    this.retrieveGenres();
   }
 };
 </script>
@@ -111,7 +131,7 @@ export default {
   background-size: 100%;
 }
 
-.menu button {
+#button-container button {
   height: 50%;
   width: 20%;
   min-width: 130px;
@@ -125,7 +145,7 @@ export default {
   transition: width 0.5s, height 0.5s, font-size 0.6s;
 }
 
-.menu button:hover {
+#button-container button:hover {
   height: 54%;
   width: 22%;
   font-size: 0.7em;
@@ -145,6 +165,7 @@ export default {
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   text-transform: uppercase;
   font-size: 20px;
 }
@@ -157,7 +178,7 @@ export default {
 #items .item {
   min-height: 50px;
   height: 100%;
-  width: 80%;
+  width: 60%;
   align-self: center;
   border-radius: 10px;
   display: flex;
@@ -169,7 +190,35 @@ export default {
 
 #items .item:hover {
   cursor: pointer;
-  width: 82%;
+  width: 62%;
+}
+
+.items-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.items-button-container button {
+  height: 40%;
+  width: 18%;
+  min-width: 130px;
+  min-height: 60px;
+  color: white;
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 1px solid white;
+  border-radius: 10px;
+  transition: width 0.5s, height 0.5s, font-size 0.6s;
+}
+
+.items-button-container button:hover {
+  cursor: pointer;
+  height: 44%;
+  width: 20%;
 }
 
 @media (max-width: 850px) {
@@ -186,6 +235,14 @@ export default {
 
   .menu #text {
     padding-left: 0;
+  }
+
+  #items .item {
+    width: 80%;
+  }
+
+  #items .item:hover {
+    width: 82%;
   }
 }
 </style>

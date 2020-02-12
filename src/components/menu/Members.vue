@@ -7,6 +7,9 @@
         <div id="item_name">{{ user.username }} </div>
       </div>
     </div>
+      <div class="items-button-container">
+        <Button class="primary-background">New Member</Button>
+      </div>
   </div>
 </template>
 
