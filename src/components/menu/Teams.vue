@@ -27,6 +27,9 @@
 <script>
 import CheckCircle from "vue-material-design-icons/CheckCircle.vue";
 
+// TODO 
+// Check if we're overusing flexbox
+// Simplify/Refactor that item-name-container stuff...
 export default {
   data: () => {
     return {

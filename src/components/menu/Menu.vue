@@ -7,7 +7,7 @@
       <Teams :teams="teams" @team="setTeam" />
       <members :members="members" />
       <generic :genres="genres" />
-      <personal />
+      <personal :personalCards="personalCards" />
       <div class="center-contents" id="button-container">
         <Button class="primary-background default-font" @click="goToDash"
           >Start</Button
@@ -30,7 +30,8 @@ export default {
     return {
       teams: [],
       members: [],
-      genres: []
+      genres: [],
+      personalCards: [],
     };
   },
   components: {
@@ -45,23 +46,21 @@ export default {
     },
     setTeam(params) {
       this.retrieveMembers(params.team_id);
+      this.retrievePersonalCards(params.team_id);
     },
-    retrieveTeams() {
-      const uri = BASE_URI + "/teams/id";
-      
-      this.$axios
-        .post(uri, {
-          team_id: 15
-        })
+    retrieveTeams(user_id) {
+      const uri = BASE_URI + "/teams/" + user_id;
+      this.$axios.
+        get(uri)
         .then(response => {
-          this.teams = response.data;
+          this.teams = response.data
         })
         .catch(error => {
-          console.dir(error);
-        });
+          console.dir(error)
+        })
     },
     retrieveGenres() {
-      const uri = BASE_URI + "/cards/genres";
+      const uri = BASE_URI + "/generic-cards/genres";
 
       this.$axios
         .get(uri)
@@ -72,23 +71,33 @@ export default {
           console.dir(error);
         });
     },
-    retrieveMembers(id) {
-      const uri = BASE_URI + "/teams/members/id";
+    retrieveMembers(teamID) {
+      const uri = BASE_URI + "/teams/members/" + teamID;
 
       this.$axios
-        .post(uri, {
-          team_id: id
-        })
+        .get(uri)
         .then(response => {
           this.members = response.data;
         })
-        .catch(function(error) {
+        .catch(error => {
           console.dir(error);
         });
-    }
+    },
+    retrievePersonalCards(teamID) {
+      const uri = BASE_URI + "/personal-cards/" + teamID;
+
+      this.$axios
+        .get(uri)
+        .then(response => {
+          this.personalCards = response.data;
+        })
+        .catch(error => {
+          console.dir(error)
+        })
+    },
   },
   mounted() {
-    this.retrieveTeams();
+    this.retrieveTeams(15);
     this.retrieveGenres();
   }
 };
