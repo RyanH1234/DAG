@@ -112,7 +112,7 @@ export default {
 
 .menu {
   height: 80%;
-  width: 80%;
+  width: 75%;
   display: flex;
   flex-direction: column;
   align-items: center;

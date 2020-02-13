@@ -5,7 +5,7 @@
       <menu-item
         v-for="member in members"
         :key="member.id"
-        :name="member.username"
+        :initialName="member.username"
         :id="member.id"
       />
     </div>

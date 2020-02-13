@@ -5,7 +5,7 @@
       <menu-item
         v-for="card in personalCards"
         :key="card.id"
-        :name="card.name"
+        :initalName="card.name"
         :id="card.id"
       />
     </div>

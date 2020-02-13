@@ -5,7 +5,7 @@
       <menu-item
         v-for="genre in genres"
         :key="genre.id"
-        :name="genre.genre"
+        :initialName="genre.genre"
         :id="genre.id"
         :clicked="clicked"
         @clicked="genreClicked"

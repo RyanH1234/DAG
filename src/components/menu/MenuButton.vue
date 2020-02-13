@@ -1,20 +1,25 @@
 <template>
   <div class="items-button-container">
-    <Button class="primary-background">{{title}}</Button>
+    <Button class="primary-background" @click="clicked()">{{title}}</Button>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["title"]
+  props: ["title"],
+  methods: {
+    clicked() {
+      this.$emit('clicked');
+    }
+  }
 };
 </script>
 
 <style scoped>
 button {
   height: 40%;
-  width: 18%;
-  min-width: 130px;
+  width: 12%;
+  min-width: 150px;
   min-height: 60px;
   color: white;
   font-size: 1em;
@@ -28,6 +33,7 @@ button {
 button:hover {
   cursor: pointer;
   height: 44%;
-  width: 20%;
+  width: 14%;
 }
+
 </style>

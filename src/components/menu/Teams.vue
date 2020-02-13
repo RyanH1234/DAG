@@ -5,13 +5,14 @@
       <menu-item
         v-for="team in teams"
         :key="team.team_id"
-        :name="team.team_name"
+        :initialName="team.team_name"
         :id="team.team_id"
         :clicked="clicked"
+        :editable="true"
         @clicked="teamClicked"
       />
     </div>
-    <MenuButton :title="btnTitle" />
+    <MenuButton :title="btnTitle" @clicked="createNewTeam" />
   </div>
 </template>
 
@@ -38,6 +39,14 @@ export default {
     teamClicked(team_id) {
       this.clicked = team_id;
       this.$emit("team", team_id);
+    },
+    createNewTeam() {
+      const newTeam = {
+        team_id: 10,
+        team_name: "New Team"
+      }
+
+      this.teams.push(newTeam);
     }
   }
 };
