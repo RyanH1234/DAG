@@ -4,7 +4,7 @@
       <div class="light-background" id="header">
         <div id="text">Welcome!</div>
       </div>
-      <Teams :teams="teams" @team="setTeam" />
+      <Teams :teams="teams" @team="setTeam" @updateName="updateName" />
       <members :members="members" />
       <generic :genres="genres" />
       <personal :personalCards="personalCards" />
@@ -24,6 +24,7 @@ import Generic from "./Generic";
 import Personal from "./Personal";
 
 const BASE_URI = "http://localhost:4000";
+const USER_ID = 15;
 
 export default {
   data: () => {
@@ -31,7 +32,7 @@ export default {
       teams: [],
       members: [],
       genres: [],
-      personalCards: [],
+      personalCards: []
     };
   },
   components: {
@@ -50,14 +51,14 @@ export default {
     },
     retrieveTeams(user_id) {
       const uri = BASE_URI + "/teams/" + user_id;
-      this.$axios.
-        get(uri)
+      this.$axios
+        .get(uri)
         .then(response => {
-          this.teams = response.data
+          this.teams = response.data;
         })
         .catch(error => {
-          console.dir(error)
-        })
+          console.dir(error);
+        });
     },
     retrieveGenres() {
       const uri = BASE_URI + "/generic-cards/genres";
@@ -92,12 +93,28 @@ export default {
           this.personalCards = response.data;
         })
         .catch(error => {
-          console.dir(error)
-        })
+          console.dir(error);
+        });
     },
+    updateName(data) {
+      const team_name = data.name;
+      const team_id = data.team_id;
+      const uri = BASE_URI + "/teams/name/" + team_id;
+
+      this.$axios
+        .patch(uri, {
+          team_name: team_name
+        })
+        .then(() => {
+          this.retrieveTeams(USER_ID);
+        })
+        .catch(error => {
+          console.dir(error);
+        });
+    }
   },
   mounted() {
-    this.retrieveTeams(15);
+    this.retrieveTeams(USER_ID);
     this.retrieveGenres();
   }
 };

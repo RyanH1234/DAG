@@ -10,6 +10,7 @@
         :clicked="clicked"
         :editable="true"
         @clicked="teamClicked"
+        @updateName="updateName"
       />
     </div>
     <MenuButton :title="btnTitle" @clicked="createNewTeam" />
@@ -40,14 +41,10 @@ export default {
       this.clicked = team_id;
       this.$emit("team", team_id);
     },
-    createNewTeam() {
-      const newTeam = {
-        team_id: 10,
-        team_name: "New Team"
-      }
-
-      this.teams.push(newTeam);
-    }
+    updateName(data) {
+      this.$emit("updateName", data);
+    },
+    createNewTeam() {}
   }
 };
 </script>

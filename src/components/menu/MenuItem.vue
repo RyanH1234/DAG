@@ -31,6 +31,11 @@ export default {
     };
   },
   watch: {
+    initialName() {
+      // the initial name will only change once the updated name has been committed to the
+      // database
+      this.nameUpdated = false;
+    },
     name() {
       this.nameUpdated = true;
     }
@@ -45,13 +50,12 @@ export default {
     },
     updateName() {
       const data = {
-        curr: this.name,
-        prev: this.initialName,
-        id: this.id
+        name: this.name,
+        team_id: this.id
       };
 
       this.$emit("updateName", data);
-    }
+    },
   }
 };
 </script>
