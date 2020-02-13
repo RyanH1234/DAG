@@ -1,20 +1,31 @@
 <template>
   <div class="container">
-    <div class="center-contents" id="title">Personal Cards</div>
+    <menu-heading :title="title" />
     <div id="items">
-      <div v-for="card in personalCards" :key="card.id" class="item">
-        <div id="padding" />
-        <div id="item_name">{{ card.name }}</div>
-      </div>
-    </div>
-    <div class="items-button-container">
-      <Button class="primary-background">New Card</Button>
+      <menu-item
+        v-for="card in personalCards"
+        :key="card.id"
+        :name="card.name"
+        :id="card.id"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import MenuHeading from "./MenuHeading.vue";
+import MenuItem from "./MenuItem.vue";
+
 export default {
-  props: ["personalCards"]
+  data: () => {
+    return {
+      title: "Personal Cards"
+    };
+  },
+  props: ["personalCards"],
+  components: {
+    MenuHeading,
+    MenuItem
+  }
 };
 </script>

@@ -1,64 +1,39 @@
 <template>
   <div class="container">
-    <div class="center-contents" id="title">Generic Cards</div>
+    <menu-heading :title="title" />
     <div id="items">
-      <div
+      <menu-item
         v-for="genre in genres"
         :key="genre.id"
-        class="item"
-        @click="setGenre(genre)"
-      >
-        <div id="item-name-container">
-          <div id="padding" />
-          <div id="item_name">{{ genre.genre }}</div>
-        </div>
-        <div id="item-name-icon">
-          <check-circle v-if="clicked == genre.id" />
-          <div id="icon-padding" />
-        </div>
-      </div>
+        :name="genre.genre"
+        :id="genre.id"
+        :clicked="clicked"
+        @clicked="genreClicked"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import CheckCircle from "vue-material-design-icons/CheckCircle.vue";
+import MenuHeading from "./MenuHeading.vue";
+import MenuItem from "./MenuItem.vue";
 
 export default {
   data: () => {
     return {
+      title: 'Generic Cards',
       clicked: null
     };
   },
   components: {
-    CheckCircle
+    MenuHeading,
+    MenuItem,
   },
   methods: {
-    setGenre(params) {
-      this.clicked = params.id;
+    genreClicked(genre_id) {
+      this.clicked = genre_id;
     }
   },
   props: ["genres"]
 };
 </script>
-
-<style scoped>
-#item-name-container {
-  width: 80%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-}
-
-#item-name-icon {
-  width: 20%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-}
-
-#icon-padding {
-  width: 20px;
-}
-</style>

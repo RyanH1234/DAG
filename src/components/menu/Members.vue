@@ -1,22 +1,35 @@
 <template>
   <div class="container">
-    <div class="center-contents" id="title">Members</div>
+    <menu-heading :title="title" />
     <div id="items">
-      <div v-for="user in members" :key="user.id" class="item">
-        <div id="padding" />
-        <div id="item_name">{{ user.username }} </div>
-      </div>
+      <menu-item
+        v-for="member in members"
+        :key="member.id"
+        :name="member.username"
+        :id="member.id"
+      />
     </div>
-      <div class="items-button-container">
-        <Button class="primary-background">New Member</Button>
-      </div>
+    <menu-button :title="btnTitle" />
   </div>
 </template>
 
 <script>
+import MenuHeading from "./MenuHeading.vue";
+import MenuItem from "./MenuItem.vue";
+import MenuButton from "./MenuButton.vue";
+
 export default {
-  props: [
-    "members"
-  ]
-}
+  data: () => {
+    return {
+      title: "Members",
+      btnTitle: "New Member"
+    };
+  },
+  props: ["members"],
+  components: {
+    MenuHeading,
+    MenuItem,
+    MenuButton
+  }
+};
 </script>

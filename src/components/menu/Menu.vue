@@ -44,9 +44,9 @@ export default {
     goToDash() {
       this.$router.push("Dash");
     },
-    setTeam(params) {
-      this.retrieveMembers(params.team_id);
-      this.retrievePersonalCards(params.team_id);
+    setTeam(team_id) {
+      this.retrieveMembers(team_id);
+      this.retrievePersonalCards(team_id);
     },
     retrieveTeams(user_id) {
       const uri = BASE_URI + "/teams/" + user_id;
@@ -161,14 +161,6 @@ export default {
   cursor: pointer;
 }
 
-.container #title {
-  width: 100%;
-  font-size: 2em;
-  text-transform: uppercase;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
 .container #items {
   flex: 1;
   width: 100%;
@@ -179,55 +171,12 @@ export default {
   font-size: 20px;
 }
 
-#items #padding {
-  height: 100%;
-  width: 2.5%;
-}
-
-#items .item {
-  min-height: 50px;
-  height: 100%;
-  width: 60%;
-  align-self: center;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  border: 1px solid white;
-  margin-bottom: 20px;
-  transition: width 0.3s;
-}
-
-#items .item:hover {
-  cursor: pointer;
-  width: 62%;
-}
-
 .items-button-container {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 40px;
-}
-
-.items-button-container button {
-  height: 40%;
-  width: 18%;
-  min-width: 130px;
-  min-height: 60px;
-  color: white;
-  font-size: 1em;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  border: 1px solid white;
-  border-radius: 10px;
-  transition: width 0.5s, height 0.5s, font-size 0.6s;
-}
-
-.items-button-container button:hover {
-  cursor: pointer;
-  height: 44%;
-  width: 20%;
 }
 
 @media (max-width: 850px) {
@@ -244,14 +193,6 @@ export default {
 
   .menu #text {
     padding-left: 0;
-  }
-
-  #items .item {
-    width: 80%;
-  }
-
-  #items .item:hover {
-    width: 82%;
   }
 }
 </style>
