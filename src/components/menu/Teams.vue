@@ -44,7 +44,9 @@ export default {
     updateName(data) {
       this.$emit("updateName", data);
     },
-    createNewTeam() {}
+    createNewTeam() {
+      this.$emit("createNewTeam");
+    }
   }
 };
 </script>

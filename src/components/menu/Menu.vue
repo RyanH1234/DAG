@@ -4,8 +4,18 @@
       <div class="light-background" id="header">
         <div id="text">Welcome!</div>
       </div>
-      <Teams :teams="teams" @team="setTeam" @updateName="updateName" />
-      <members :members="members" />
+      <Teams
+        :teams="teams"
+        @team="setTeam"
+        @updateName="updateName"
+        @createNewTeam="createNewTeam"
+      />
+      <members
+        :members="members"
+        :users="users"
+        :teamSelected="teamSelected"
+        @retrieveAllUsers="retrieveAllUsers"
+      />
       <generic :genres="genres" />
       <personal :personalCards="personalCards" />
       <div class="center-contents" id="button-container">
@@ -29,6 +39,8 @@ const USER_ID = 15;
 export default {
   data: () => {
     return {
+      teamSelected: null,
+      users: [],
       teams: [],
       members: [],
       genres: [],
@@ -46,6 +58,7 @@ export default {
       this.$router.push("Dash");
     },
     setTeam(team_id) {
+      this.teamSelected = team_id;
       this.retrieveMembers(team_id);
       this.retrievePersonalCards(team_id);
     },
@@ -71,6 +84,18 @@ export default {
         .catch(error => {
           console.dir(error);
         });
+    },
+    retrieveAllUsers() {
+      const uri = BASE_URI + "/users";
+
+      this.$axios
+        .get(uri)
+        .then(response => {
+          this.users = response.data;
+        })
+        .catch(error => {
+          console.dir(error)
+        })
     },
     retrieveMembers(teamID) {
       const uri = BASE_URI + "/teams/members/" + teamID;
@@ -104,6 +129,41 @@ export default {
       this.$axios
         .patch(uri, {
           team_name: team_name
+        })
+        .then(() => {
+          this.retrieveTeams(USER_ID);
+        })
+        .catch(error => {
+          console.dir(error);
+        });
+    },
+    createNewTeam() {
+      const uri = BASE_URI + "/teams";
+
+      this.$axios
+        .post(uri, {
+          team_name: "Default Name",
+          leader_id: USER_ID
+        })
+        .then(response => {
+          const team_id = response.data;
+          this.addTeamMember(team_id, USER_ID);
+        })
+        .catch(error => {
+          console.dir(error);
+        });
+    },
+    addNewMember() {
+      console.dir("adding new member!");
+      // this.addTeamMember(this.teamSelected, USER_ID);
+    },
+    addTeamMember(team_id, user_id) {
+      const uri = BASE_URI + "/teams/members";
+
+      this.$axios
+        .post(uri, {
+          team_id: team_id,
+          user_id: user_id
         })
         .then(() => {
           this.retrieveTeams(USER_ID);
