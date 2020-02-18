@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { checkIfLast30secs } from "../helper/time.js";
+import { checkIfLast30secs } from "../../helper/time.js";
 
 export default {
   data: () => {

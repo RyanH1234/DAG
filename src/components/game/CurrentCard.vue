@@ -59,7 +59,7 @@ export default {
 
 <style scoped>
 .content-container {
-  background-image: url("../assets/bg_1_low.jpg");
+  background-image: url("../../assets/bg_1_low.jpg");
   background-position: center;
   background-size: 100%;
   height: 70vh;

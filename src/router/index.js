@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Menu from "../components/menu/Menu";
-import Dashboard from "../components/Dashboard";
+import Dashboard from "../components/game/Dashboard";
 
 Vue.use(VueRouter)
 

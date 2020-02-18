@@ -10,7 +10,7 @@
 <script>
 import Countdown from "./Countdown.vue";
 
-import { getMidnight } from "../helper/time.js";
+import { getMidnight } from "../../helper/time.js";
 
 export default {
   data: () => {

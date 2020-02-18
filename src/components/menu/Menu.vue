@@ -29,10 +29,10 @@
 </template>
 
 <script>
-import Teams from "./Teams";
-import Members from "./Members";
-import Generic from "./Generic";
-import Personal from "./Personal";
+import Teams from "./teams/Teams";
+import Members from "./members/Members";
+import Generic from "./generic/Generic";
+import Personal from "./personal/Personal";
 
 const BASE_URI = "http://localhost:4000";
 const USER_ID = 15;

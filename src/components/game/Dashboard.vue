@@ -17,7 +17,7 @@ import Tabs from "./Tabs.vue";
 import List from "./List.vue";
 import CurrentCard from "./CurrentCard.vue";
 
-import { addMinutesToDate, getCountdown } from "../helper/time.js";
+import { addMinutesToDate, getCountdown } from "../../helper/time.js";
 
 export default {
   name: "dashboard",

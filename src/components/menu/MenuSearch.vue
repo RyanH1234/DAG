@@ -32,7 +32,6 @@ import ContentSave from "vue-material-design-icons/ContentSave.vue";
 import Magnify from "vue-material-design-icons/Magnify.vue";
 import Alert from "vue-material-design-icons/Alert.vue";
 
-
 export default {
   props: ["nonMembers"],
   data: () => {

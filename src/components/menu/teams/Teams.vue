@@ -18,9 +18,9 @@
 </template>
 
 <script>
-import MenuHeading from "./MenuHeading.vue";
-import MenuItem from "./MenuItem.vue";
-import MenuButton from "./MenuButton.vue";
+import MenuHeading from "../MenuHeading.vue";
+import MenuItem from "../MenuItem.vue";
+import MenuButton from "../MenuButton.vue";
 
 export default {
   data: () => {
