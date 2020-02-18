@@ -80,7 +80,9 @@ export default {
 
       if (validated) {
         const newMember = this.retrieveMember(newMemberUsername, nonMembers);
+
         this.$emit("addNewMember", newMember);
+        
         this.newMember = null;
       } else {
         this.err = true;

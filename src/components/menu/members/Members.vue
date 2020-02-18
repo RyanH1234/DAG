@@ -46,12 +46,9 @@ export default {
     }
   },
   methods: {
-    retrieveAllUsers() {
-      this.$emit("retrieveAllUsers", this.teamSelected);
-    },
     addNewMember(member) {
-      const user_id = member["id"];
-      this.$emit("addNewMember", user_id);
+      const member_id = member["id"];
+      this.$emit("addNewMember", member_id);
     },
     containsUser(user, members) {
       let containsUser = false;
@@ -64,15 +61,18 @@ export default {
 
       return containsUser;
     },
+    buildAccumulator(user, members, accumulator) {
+      const containsUser = this.containsUser(user, members);
+
+      if (!containsUser) {
+        accumulator.push(user);
+      }
+
+      return accumulator;
+    },
     filterUsers(users, members) {
       const filteredUsers = users.reduce((accumulator, user) => {
-        const containsUser = this.containsUser(user, members);
-
-        if (!containsUser) {
-          accumulator.push(user);
-        }
-
-        return accumulator;
+        return this.buildAccumulator(user, members, accumulator);
       }, []);
 
       return filteredUsers;
