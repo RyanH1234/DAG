@@ -8,6 +8,8 @@
         :initialName="card.name"
         :id="card.id"
       />
+
+      <menu-card v-if="teamSelected != null" @saveCard="createPersonalCard" />
     </div>
   </div>
 </template>
@@ -15,17 +17,25 @@
 <script>
 import MenuHeading from "../MenuHeading.vue";
 import MenuItem from "../MenuItem.vue";
+import MenuCard from "../MenuCard.vue";
 
 export default {
+  props: ["personalCards", "teamSelected"],
   data: () => {
     return {
-      title: "Personal Cards"
+      title: "Personal Cards",
+      btnTitle: "Add Card"
     };
   },
-  props: ["personalCards"],
   components: {
     MenuHeading,
-    MenuItem
+    MenuItem,
+    MenuCard
+  },
+  methods: {
+    createPersonalCard(card) {
+      this.$emit("createPersonalCard", card);
+    }
   }
 };
 </script>

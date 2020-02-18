@@ -18,7 +18,11 @@
         @addNewMember="addNewMember"
       />
       <generic :genres="genres" />
-      <personal :personalCards="personalCards" />
+      <personal
+        :personalCards="personalCards"
+        :teamSelected="teamSelected"
+        @createPersonalCard="createPersonalCard"
+      />
       <div class="center-contents" id="button-container">
         <Button class="primary-background default-font" @click="goToDash"
           >Start</Button
@@ -171,6 +175,20 @@ export default {
         })
         .then(() => {
           this.retrieveTeams(USER_ID);
+        })
+        .catch(error => {
+          console.dir(error);
+        });
+    },
+    createPersonalCard(card) {
+      const teamID = this.teamSelected;
+      const params = { team_id: teamID, ...card };
+      const uri = BASE_URI + "/personal-cards/";
+
+      this.$axios
+        .post(uri, params)
+        .then(() => {
+          this.retrievePersonalCards(teamID);
         })
         .catch(error => {
           console.dir(error);
