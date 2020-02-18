@@ -9,32 +9,19 @@
         :id="member.id"
       />
 
-      <select
-        class="primary-background"
-        v-if="newMembers.length > 0"
-        style="width: 60%; min-height: 50px; align-self: center; margin-bottom: 20px; border-radius: 10px; border: 1px solid white; color: white; text-transform: uppercase; font-size: 20px; padding-left: 10px;"
-      >
-        <option
-          v-for="member in newMembers"
-          :key="member.id"
-          :value="member.username"
-        >
-          {{ member.username }}
-        </option>
-      </select>
+      <menu-search
+        :nonMembers="nonMembers"
+        v-if="nonMembers.length > 0"
+        @addNewMember="addNewMember"
+      />
     </div>
-    <menu-button
-      :title="btnTitle"
-      v-if="teamSelected != null"
-      @clicked="addNewMember"
-    />
   </div>
 </template>
 
 <script>
 import MenuHeading from "./MenuHeading.vue";
 import MenuItem from "./MenuItem.vue";
-import MenuButton from "./MenuButton.vue";
+import MenuSearch from "./MenuSearch.vue";
 
 export default {
   props: ["members", "teamSelected", "users"],
@@ -42,24 +29,29 @@ export default {
     return {
       title: "Members",
       btnTitle: "New Member",
-      newMembers: []
+      nonMembers: []
     };
   },
   components: {
     MenuHeading,
     MenuItem,
-    MenuButton
+    MenuSearch
   },
   watch: {
-    users() {
+    members() {
       const users = this.users;
       const members = this.members;
-      this.newMembers = this.filterUsers(users, members);
+      const filteredUsers = this.filterUsers(users, members);
+      this.nonMembers = filteredUsers;
     }
   },
   methods: {
-    addNewMember() {
+    retrieveAllUsers() {
       this.$emit("retrieveAllUsers", this.teamSelected);
+    },
+    addNewMember(member) {
+      const user_id = member["id"];
+      this.$emit("addNewMember", user_id);
     },
     containsUser(user, members) {
       let containsUser = false;

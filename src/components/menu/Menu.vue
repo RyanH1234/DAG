@@ -15,6 +15,7 @@
         :users="users"
         :teamSelected="teamSelected"
         @retrieveAllUsers="retrieveAllUsers"
+        @addNewMember="addNewMember"
       />
       <generic :genres="genres" />
       <personal :personalCards="personalCards" />
@@ -59,6 +60,8 @@ export default {
     },
     setTeam(team_id) {
       this.teamSelected = team_id;
+
+      this.retrieveAllUsers();
       this.retrieveMembers(team_id);
       this.retrievePersonalCards(team_id);
     },
@@ -94,8 +97,8 @@ export default {
           this.users = response.data;
         })
         .catch(error => {
-          console.dir(error)
-        })
+          console.dir(error);
+        });
     },
     retrieveMembers(teamID) {
       const uri = BASE_URI + "/teams/members/" + teamID;
@@ -153,9 +156,10 @@ export default {
           console.dir(error);
         });
     },
-    addNewMember() {
-      console.dir("adding new member!");
-      // this.addTeamMember(this.teamSelected, USER_ID);
+    addNewMember(user_id) {
+      this.addTeamMember(this.teamSelected, user_id);
+      this.retrieveAllUsers();
+      this.retrieveMembers(this.teamSelected);
     },
     addTeamMember(team_id, user_id) {
       const uri = BASE_URI + "/teams/members";
