@@ -39,7 +39,7 @@ import Generic from "./generic/Generic";
 import Personal from "./personal/Personal";
 
 const BASE_URI = "http://localhost:4000";
-const USER_ID = 15;
+const USER_ID = 1;
 
 export default {
   data: () => {
