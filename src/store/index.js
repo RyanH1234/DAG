@@ -13,10 +13,10 @@ const cards = [
   },
   {
     id: 2,
-    name: "Grace's Card",
+    name: "Jordanna's Card",
     genre: "Personal",
     description:
-      "Grace must automatically drink and cannot participate in this challenge. At some point in the next ten minutes Grace will yell 'Go'. Upon hearing this everyone must run to the nearest bedroom. The first person to make it to the bedroom wins. Everyone else must drink. Any tipping of drinks or breaking of property results in an automatic shot of alcohol."
+      "Get pumped for FTL mofos! For each person, randomly play a song from the playlist 'FTL20 JP'. Going around in a circle each person must identify the artist of their song. If you cannot tell the artist, you must drink and for every person after who continues to guess the right artist - you must drink."
   },
   {
     id: 3,
@@ -37,14 +37,14 @@ const cards = [
     name: "Connor's Card",
     genre: "Personal",
     description:
-      "Connor must automatically drink. Everyone must estimate the amount of burritos Connor has consumed in the past year alone. The person who guesses the closest to Connor's estimate wins. Everyone else must drink."
+      "Connor must automatically drink. Connor will present five photos, cropped so we his head fills the screen. Everyone must vote on which photo is him shitting. Those who get the wrong answer must drink."
   },
   {
     id: 6,
-    name: "Ashleigh's Card",
+    name: "Renata's Card",
     genre: "Personal",
     description:
-      "Ashleigh must automatically drink and has the option of participating in this challenge. The challenge is for each person, one after the other, to name/mimic a vine. If you fail to name a vine you are disqualified. For every person that continues to name new vines, you must drink."
+      "Renta must automatically drink. Renata has the chance to hum three songs of her choosing. Each song can be hummed for a maximum of 30 seconds. Everyone must guess the song she's humming. If you guess wrongly, drink. If you don't guess, drink. If, at the end of the 30 seconds no one can guess the song - Renata must drink."
   },
   {
     id: 7,
@@ -55,31 +55,31 @@ const cards = [
   },
   {
     id: 8,
+    name: "Ben's Card",
+    genre: "Personal",
+    description:
+      "Ben must automatically drink. Everyone just take a moment to admire that wholesome smile that Ben seems to always have. Drink if you cry."
+  },
+  {
+    id: 9,
+    name: "Mikhaela's Card",
+    genre: "Personal",
+    description:
+      "Mikhaela must automatically drink and cannot participate in this challenge. Each person must spell Mikahela's name on their phones. If you spell it wrong - you drink."
+  },
+  {
+    id: 10,
     name: "The Sloth",
     genre: "Generic",
     description:
       "The person who has consumed the least amount of alcohol (judged by volume or number of cans) must drink."
   },
   {
-    id: 9,
+    id: 11,
     name: "The Anti-Social",
     genre: "Generic",
     description:
       "Anyone who has been on their phones since the previous round must drink. A shot must be taken if a person is caught with their phone in their hand at this exact moment."
-  },
-  {
-    id: 10,
-    name: "The Alcoholic",
-    genre: "Generic",
-    description:
-      "The person who has consumed the most amount of alcohol (judged by volume or number of cans) must drink."
-  },
-  {
-    id: 11,
-    name: "The Disgustang",
-    genre: "Generic",
-    description:
-      "The person who can write down the 'Disgustang' video word for word wins. Everyone else must drink."
   },
   {
     id: 12,
@@ -97,67 +97,74 @@ const cards = [
   },
   {
     id: 14,
-    name: "Stay Hydrated",
+    name: "The Stank",
     genre: "Generic",
     description:
-      "The person who has drunk the most amount of water wins. If no one can tell who has drunk the most amount of water - chances are you're all dehydrated. Take a shot of water and a shot of your drink."
+      "For the next ten minutes the person who can do the nastiest fart wins. Bonus points for a shart. Everyone most vote on their favourite fart which was not produced by themselves. If you are unable to fart, you must drink."
   },
   {
     id: 15,
-    name: "Two Shots Of Vodka",
-    genre: "Generic",
-    description:
-      "Everyone must fill their drinks to the brim with some form of alcohol. No mixers allowed. Everyone must then participate in Waterfall."
-  },
-  // {
-  //   id: 16,
-  //   name: "The Stank",
-  //   genre: "Generic",
-  //   description:
-  //     "For the next ten minutes the person who can do the nastiest fart wins. Bonus points for a shart. Everyone most vote on their favourite fart which was not produced by themselves. If you are unable to fart, you must drink."
-  // },
-  // {
-  //   id: 17,
-  //   name: "Bali Belly",
-  //   genre: "Generic",
-  //   description:
-  //     "Each person must share their most horrific shitting stories. Everyone must vote on a story other than the one they recounted. The person with the most votes wins. Everyone else must drink. Drink again if you don't share/don't have a story."
-  // },
-  {
-    id: 18,
-    name: "It's A Boy!",
-    genre: "Generic",
-    description:
-      "Within the next ten minutes each person must share a photo where they look the most pregnant. Everyone must vote on a photo that was taken by someone other than themselves. The photo with the most votes wins. Everyone else must drink. Anyone who decides not to participate must drink."
-  },
-  // {
-  //   id: 19,
-  //   name: "What Appears To Be The Officer, Problem?",
-  //   genre: "Generic",
-  //   description:
-  //     "Each person must attempt to walk in a straight line - forwards and backwards. The person who can walk the straightest wins. Everyone else must drink."
-  // },
-  {
-    id: 19,
-    name: "The Tight Rope",
-    genre: "Generic",
-    description:
-      "Each person must attempt to walk in a straight line - forwards and backwards. The person who can walk the straightest wins. Everyone else must drink."
-  },
-  {
-    id: 20,
     name: "The Wholesome",
     genre: "Generic",
     description:
       "Each person must say something nice about the person opposite them. Everyone gets a compliment. If you are snide, scarcastic or rude - you must drown your whole drink. Love you all x"
   },
-  // {
-  //   id: 21,
-  //   name: "Gossip Goat",
-  //   genre: "Generic",
-  //   description:
-  //     "Whoever has the juiceiest gossip to spill, wins. Spill the tea bitches."
-  // }
+  {
+    id: 16,
+    name: "Spin The Wheel",
+    genre: "Generic",
+    description:
+      "Spin the drinking wheel. If you're an idiot and forgot to bring said drinking wheel AND you were too lazy to code a drinking wheel in the game - drink. You stupid mofo."
+  },
+  {
+    id: 17,
+    name: "Bird Box",
+    genre: "Generic",
+    description: 
+      "Split into pairs. Each pair will be presented with a cup of alcohol. The goal is to guess what kind of alcohol is in the cup. However, each pair will be blindfolded and will be requried to peg their nose. If you guess the contents of the cup incorrectly, both of you must drink."
+  },
+  {
+    id: 18,
+    name: "Cowboy Bebop",
+    genre: "Generic",
+    description: 
+      "Each pair must re-enact a good old fashioned shoot-off. Each person will whip out a number with their fingers on one hand (e.g. a number from 1 to 5). If both people either get the same number or a pair of numbers which add to 5 - drink!"
+  },
+  {
+    id: 19,
+    name: "Ben 10",
+    genre: "Generic",
+    description: 
+      "One person must think of a number between 1 and 10. Everyone else must try and guess this number. The amount of drinks is the difference between the actual number and the guessed number."
+  },
+  {
+    id: 20,
+    name: "The Sinner",
+    genre: "Generic",
+    description:
+      "Everyone must sit in a circle, hold hands and repent. Three hail marys and then a shot of alcohol to clense your sins. God bless."
+  },
+  {
+    id: 21,
+    name: "Would I Lie To You",
+    genre: "Generic", 
+    description:
+      "One person must either tell the group a truth or lie. Preferablly this will be a newcomer to the group. Each person will get to ask one question deciding if this statement is true. The group must make a decision as a collective whether or not the person is telling the truth or lie. If the group is wrong, everyone must drink."
+  },
+  {
+    id: 22,
+    name: "Cheeky",
+    genre: "Generic",
+    description:
+      "Apart from one person, each member must take a picture of their ass on a shared phone. The order of the butts must be kept secret from the person who did not take a picture. This person will need to guess whose butt is whose. If your butt if guessed correctly, you must drink. Else, for every butt guessed incorrectly, the identifier must drink."
+  },
+  {
+    id: 23, 
+    name: "Question Masters",
+    genre: "Generic",
+    description:
+      "Split into pairs. For each pair, and for the entirety of this round - one person can only ask questions, while the other can only say statements. You must drink if these roles are reversed at any point."
+  }
 ];
 
 const shuffledCards = shuffle(cards);
