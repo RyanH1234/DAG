@@ -164,6 +164,13 @@ const cards = [
     genre: "Generic",
     description:
       "Split into pairs. For each pair, and for the entirety of this round - one person can only ask questions, while the other can only say statements. You must drink if these roles are reversed at any point."
+  },
+  {
+    id: 24,
+    name: "Elvis Elites",
+    genre: "Generic",
+    description:
+      "Come together and as one, sing 'Can't Help Falling In Love' by Elvis."
   }
 ];
 
